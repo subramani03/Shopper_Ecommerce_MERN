@@ -1,0 +1,103 @@
+.new-collection {
+    width: 85%;
+    margin: 60px auto;
+  }
+  
+  .new-collection .heading {
+    display: flex;
+    justify-content: center; /* Center align heading contents */
+    align-items: center;
+    flex-direction: column;
+    gap: 10px; /* Add space between elements */
+  }
+  
+  .new-collection h1 {
+    font-size: 35px;
+    font-weight: bold;
+    margin: 0; /* Remove default margin for clean alignment */
+  }
+  
+  .new-collection hr {
+    border: none;
+    height: 5px;
+    width: 150px;
+    background-color: #252525;
+    margin: 10px auto 20px; /* Center the line and add spacing */
+  }
+  
+  .new-collection-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Simplify column definition */
+    gap: 30px;
+    margin-top: 50px;
+    justify-items: center; /* Center items within their grid cells */
+    align-items: center;
+  }
+  
+  @media (max-width: 1280px) {
+    .new-collection h1 {
+      font-size: 30px;
+    }
+  
+    .new-collection hr {
+      height: 3px;
+      width: 130px;
+    }
+  
+    .new-collection-container {
+      gap: 20px;
+      margin-top: 40px;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .new-collection h1 {
+      font-size: 28px;
+    }
+  
+    .new-collection hr {
+      height: 3px;
+      width: 130px;
+    }
+  
+    .new-collection-container {
+      gap: 20px;
+      grid-template-columns: repeat(3, 1fr); /* Reduce columns for smaller screens */
+      margin-top: 30px;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .new-collection h1 {
+      font-size: 26px;
+    }
+  
+    .new-collection hr {
+      height: 3px;
+      width: 110px;
+    }
+  
+    .new-collection-container {
+      gap: 25px;
+      grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns */
+      margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .new-collection h1 {
+      font-size: 22px;
+    }
+  
+    .new-collection hr {
+      height: 3px;
+      width: 100px;
+    }
+  
+    .new-collection-containerr {
+      gap: 20px;
+      grid-template-columns: 1fr 1fr; /* Single-column layout for small screens */
+      margin-top: 20px;
+    }
+  }
+  

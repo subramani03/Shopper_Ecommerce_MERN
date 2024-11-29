@@ -1,0 +1,80 @@
+.DescriptionBox {
+  width: 85%;
+  margin: 60px auto -10px auto;
+}
+
+.DescriptionBox-navigator {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.DescriptionBox-navigator .DescriptionBox-navbox {
+  border: 1px solid #d0d0d0;
+  width: 171px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+.fade{
+   background: #fbfbfb;
+   color: #555;
+  }
+  
+
+.DescriptionBox-Description {
+  border: 1px solid #d0d0d0;
+  display: flex;
+  gap: 25px;
+  padding: 45px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+
+@media(max-width:1280px) {
+
+  .DescriptionBox-navigator .DescriptionBox-navbox {
+    width: 160px;
+    height: 60px;
+    font-size: 14px;
+  } 
+  .DescriptionBox-Description {
+    gap: 20px;
+    padding: 40px;
+    font-size: 14px;
+  }
+  
+}
+
+@media(max-width:800px) {
+
+  .DescriptionBox-navigator .DescriptionBox-navbox {
+    width: 140px;
+    height: 50px;
+    font-size: 13px;
+  } 
+  .DescriptionBox-Description {
+    gap: 15px;
+    padding: 30px;
+    font-size: 12px;
+  } 
+}
+
+@media(max-width:500px) {
+
+  .DescriptionBox-navigator .DescriptionBox-navbox {
+    width: 120px;
+    height: 40px;
+    font-size: 12px;
+  } 
+  .DescriptionBox-Description {
+    gap: 15px;
+    padding: 20px;
+    font-size: 11px;
+  } 
+}

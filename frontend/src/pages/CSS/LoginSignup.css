@@ -1,0 +1,149 @@
+.LoginSignup-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;  
+  height: 90vh;
+  padding-top:50px;
+  padding:30px;
+}
+
+.LoginSignup-input-fields{
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  justify-content: center;
+}
+
+.LoginSignup-input-fields h1 {
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: 600px;
+}
+
+.LoginSignup-input-fields input {
+  margin: 10px 0px;
+  height: 40px;
+  font-size: 14px;
+  border: 1px solid rgba(180, 180, 180, 0.3);
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: black;
+}
+
+.LoginSignup-input-fields input::placeholder {
+  color: black;
+  padding-left: 10px;
+}
+
+.LoginSignup-input-fields button {
+  margin: 15px 0px;
+  background: #ff4141;
+  color:white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.LoginSignup-input-fields p {
+  font-size: 13px;
+  font-weight: 500;
+}
+.LoginSignup-input-fields p span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ff4141;
+}
+
+.LoginSignup-check-condition {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+@media(max-width:1280px){
+
+  .LoginSignup-input-fields{
+    padding: 40px;
+  }
+  .LoginSignup-input-fields h1 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  .LoginSignup-input-fields input {
+    margin: 10px 0px;
+    height: 38px;
+    font-size: 13px;
+  }
+  
+  .LoginSignup-input-fields button {
+    margin: 15px 0px;
+    font-size: 14px;
+    height: 30px;
+  }
+  
+  .LoginSignup-input-fields p {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .LoginSignup-input-fields p span {
+    font-size: 12px;
+  }
+  
+  .LoginSignup-check-condition {
+    gap: 10px;
+    font-size: 12px;
+  }
+  
+}
+
+@media(max-width:500px){
+
+  .LoginSignup-input-fields{
+    width: auto;
+    max-width: 500px;
+    max-height: 500px;
+    padding: 25px;
+  }
+  .LoginSignup-input-fields h1 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .LoginSignup-input-fields input {
+    margin: 10px 0px;
+    font-size: 13px;
+  }
+
+  
+  .LoginSignup-input-fields button {
+    margin: 10px 0px;
+    font-size: 13px;
+  }
+  
+  .LoginSignup-input-fields p {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .LoginSignup-input-fields p span {
+    font-size: 12px;
+  }
+  
+  .LoginSignup-check-condition {
+    gap: 10px;
+    font-size: 12px;
+  }
+  
+}
