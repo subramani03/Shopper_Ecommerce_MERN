@@ -1,0 +1,82 @@
+.AddProduct {
+  padding: 30px;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: #878b8f33 0px 8px 24px;
+  margin: 10px 30px;
+}
+
+.AddProduct .addproduct-itemfield {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.AddProduct .addproduct-itemfield input {
+  height: 30px;
+  font-size: 16px;
+  padding: 5px;
+}
+.AddProduct .addproduct-price input {
+  width: 250px;
+}
+.AddProduct .addproduct-price {
+  display: flex;
+  gap: 20px;
+}
+.AddProduct .addproduct-itemfield select {
+  height: 30px;
+  font-size: 16px;
+}
+
+.AddProduct .addproduct-itemfield label img {
+  width: 100px;
+}
+
+.AddProduct button {
+  background: #ff4141;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 35px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+@media (max-width: 1024px) {
+  .AddProduct {
+    padding: 20px;
+  }
+
+  .AddProduct .addproduct-itemfield input {
+    height: 25px;
+    font-size: 14px;
+  }
+  .AddProduct .addproduct-price input {
+    width: 220px;
+  }
+  .AddProduct button {
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 800px) {
+  .AddProduct .addproduct-price input {
+    width: auto;
+  }
+  .AddProduct .addproduct-price {
+    flex-direction: column;
+  }
+  .AddProduct button {
+    font-size: 13px;
+    font-weight: 500;
+    height: 35px;
+    width: 150px;
+  }
+}
