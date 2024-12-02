@@ -55,8 +55,8 @@ const ProductDisplay = (product) => {
           </div>
         </div>
 
-        <button onClick={()=>{addToCart(item.id);
-        }}>ADD TO CART</button>
+        <button onClick={ localStorage.getItem('auth-token') ? ()=>{addToCart(item.id)
+        }:()=>{window.location.replace('/login')}}>ADD TO CART</button>
         <div className='productDisplay-right-category'>
           <p>Category : <span>Women, T-shirt, Crop Top</span></p>
           <p>Tags : <span>Modern,Latest</span></p>

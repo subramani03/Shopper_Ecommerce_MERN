@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Popular.css";
-import data_product from "../Assets/data";
 import Item from '../Item/Item';
 
 const Popular = () => {
+
+    let [popularProduct,setPopularProduct] = useState([]);
+
+    let fetchPopularProduct=async ()=>{
+        let data =await fetch('http://localhost:3000/popularproducts/');
+        let response = await data.json();
+        console.log(response.products);
+        setPopularProduct(response.products);
+      }
+       useEffect(()=>{
+        fetchPopularProduct();
+       },[]) 
+
     return (
         <div className='popular'>
             <div className='heading'>
@@ -11,7 +23,7 @@ const Popular = () => {
             </div>
 
             <div className="popular-items-container">
-                {data_product.map((item, i) => (<Item data={item} key={i} />))}
+                {popularProduct.map((item, i) => (<Item data={item} key={i} />))}
             </div>
 
         </div>

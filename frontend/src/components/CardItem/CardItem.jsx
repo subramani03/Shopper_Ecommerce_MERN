@@ -7,7 +7,10 @@ const CardItem = () => {
 
     const { all_product, cartItem, removeFromCart, totalCartPrice } = useContext(ShopContext);
     console.log(totalCartPrice());
-    return (
+    const valuesCartItemArray = Object.values(cartItem);
+    const filterValuesCartItemArray= valuesCartItemArray.filter((val)=>val>0);
+    console.log(filterValuesCartItemArray);
+    return filterValuesCartItemArray.length > 0 ?(
         <div className='CartItem'>
             <div className="CartItem-format-main">
                 <p>Products</p>
@@ -39,7 +42,6 @@ const CardItem = () => {
                     return null;
                 })
             }
-
             <div className="cartItem-carttotal">
                 <div className="cartItem-carttotal-left">
                     <h1>Cart Totals</h1>
@@ -72,8 +74,14 @@ const CardItem = () => {
                 </div>
 
             </div>
+        </div>) : (
+        <div>
+            <p className='CartItem-empty-cart'>Empty cart</p>
         </div>
     )
+
+
+
 }
 
 export default CardItem

@@ -8,31 +8,84 @@ import Cart from "./pages/Cart";
 import LoginSignup from "./pages/LoginSignup";
 import Footer from "./components/Footer/Footer";
 import { ShopContext } from "./Context/ShopContext";
-import all_product from "./components/Assets/all_product";
 import banner_mens from "./components/Assets/banner_mens.png";
 import banner_women from "./components/Assets/banner_women.png";
 import banner_kids from "./components/Assets/banner_kids.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  let setDefautCart = () => {
+  const [all_product, setAllProducts] = useState([]);
+
+  let fetchAllProduct = async () => {
+    let data = await fetch("http://localhost:3000/allproducts/");
+    let response = await data.json();
+    console.log(response.products);
+    setAllProducts(response.products);
+  };
+  let fetchCartdata = async () => {
+    let Cartsdata = await fetch("http://localhost:3000/getcart/", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("auth-token"),
+      },
+    });
+    let cartResponse = await Cartsdata.json();
+    setCartItem(cartResponse.cartdata);
+    console.log(cartItem);
+  };
+  useEffect(() => {
+    fetchAllProduct();
+    if (localStorage.getItem("auth-token")) {
+      fetchCartdata();
+    }
+  }, []);
+  // useEffect(() => {
+  //   fetchCartdata();
+  // });
+
+  let setDefaultCart = () => {
     let cart = {};
-    for (let index = 0; index <= all_product.length; index++) {
+    for (let index = 0; index <= 300; index++) {
       cart[index] = 0;
     }
     return cart;
   };
 
-  let [cartItem, setCartItem] = useState(setDefautCart());
+  let [cartItem, setCartItem] = useState(setDefaultCart());
+  console.log(cartItem);
 
-  const addToCart = (itemId) => {
+  const addToCart = async (itemId) => {
     setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     console.log(cartItem);
+    let data = await fetch("http://localhost:3000/addtocarts/", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("auth-token"),
+      },
+      body: JSON.stringify({ itemId: itemId }),
+    });
+    let response = await data.json();
+    console.log(response);
   };
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = async (itemId) => {
     setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     console.log(cartItem);
+    let data = await fetch("http://localhost:3000/removefromcarts/", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("auth-token"),
+      },
+      body: JSON.stringify({ itemId: itemId }),
+    });
+    let response = await data.json();
+    console.log(response);
   };
 
   const totalCartItem = () => {
@@ -49,15 +102,16 @@ function App() {
     let totalPrice = 0;
     for (const item in cartItem) {
       if (cartItem[item] > 0) {
-        let cartProductPrice=all_product.find((product) => product.id === Number(item)).new_price;
-        let quantity=cartItem[item];
-        totalPrice += cartProductPrice *quantity ;
+        let cartProductPrice = all_product.find(
+          (product) => product.id === Number(item)
+        ).new_price;
+        let quantity = cartItem[item];
+        totalPrice += cartProductPrice * quantity;
       }
     }
     return totalPrice;
   };
   const [menu, setMenu] = useState("shop");
-
 
   return (
     <div>
